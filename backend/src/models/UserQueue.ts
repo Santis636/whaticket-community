@@ -9,6 +9,7 @@ import {
 import Queue from "./Queue";
 import User from "./User";
 
+// adicionar o clinte interno
 @Table
 class UserQueue extends Model<UserQueue> {
   @ForeignKey(() => User)

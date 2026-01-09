@@ -16,6 +16,7 @@ import UserQueue from "./UserQueue";
 import Whatsapp from "./Whatsapp";
 import WhatsappQueue from "./WhatsappQueue";
 
+//filas
 @Table
 class Queue extends Model<Queue> {
   @PrimaryKey

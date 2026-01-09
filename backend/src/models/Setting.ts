@@ -7,6 +7,7 @@ import {
   PrimaryKey
 } from "sequelize-typescript";
 
+// vincular com clinte interno
 @Table
 class Setting extends Model<Setting> {
   @PrimaryKey

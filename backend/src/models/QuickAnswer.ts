@@ -9,6 +9,9 @@ import {
   AutoIncrement
 } from "sequelize-typescript";
 
+// /respostas rapidadas
+// da para vincular com o cliente interno
+
 @Table
 class QuickAnswer extends Model<QuickAnswer> {
   @PrimaryKey

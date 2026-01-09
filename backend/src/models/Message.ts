@@ -13,6 +13,8 @@ import {
 import Contact from "./Contact";
 import Ticket from "./Ticket";
 
+//mensagens enviadas
+
 @Table
 class Message extends Model<Message> {
   @PrimaryKey

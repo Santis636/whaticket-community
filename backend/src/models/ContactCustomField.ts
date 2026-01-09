@@ -11,6 +11,8 @@ import {
 } from "sequelize-typescript";
 import Contact from "./Contact";
 
+// campo de constumização de contatos
+
 @Table
 class ContactCustomField extends Model<ContactCustomField> {
   @PrimaryKey

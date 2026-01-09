@@ -17,7 +17,7 @@ import Message from "./Message";
 import Queue from "./Queue";
 import User from "./User";
 import Whatsapp from "./Whatsapp";
-
+// vincular ao clinte interno
 @Table
 class Ticket extends Model<Ticket> {
   @PrimaryKey

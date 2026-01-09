@@ -54,4 +54,6 @@ class Contact extends Model<Contact> {
   extraInfo: ContactCustomField[];
 }
 
+//vincular com cliente externo
+
 export default Contact;

@@ -21,6 +21,7 @@ import Queue from "./Queue";
 import UserQueue from "./UserQueue";
 import Whatsapp from "./Whatsapp";
 
+// adicionar o vinculo de permissão por usuario
 @Table
 class User extends Model<User> {
   @PrimaryKey

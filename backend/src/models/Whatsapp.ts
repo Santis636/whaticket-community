@@ -16,6 +16,7 @@ import {
 import Queue from "./Queue";
 import Ticket from "./Ticket";
 import WhatsappQueue from "./WhatsappQueue";
+// adicionar o clinte interno
 
 @Table
 class Whatsapp extends Model<Whatsapp> {
