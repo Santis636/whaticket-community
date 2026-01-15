@@ -20,6 +20,9 @@ import Ticket from "./Ticket";
 import Queue from "./Queue";
 import UserQueue from "./UserQueue";
 import Whatsapp from "./Whatsapp";
+import Role from "./Role";
+import Company from "./Company";
+import { company } from "faker";
 
 // adicionar o vinculo de permissão por usuario
 @Table
@@ -45,9 +48,23 @@ class User extends Model<User> {
   @Column
   tokenVersion: number;
 
-  @Default("admin")
+  // @Default("admin")
+  // @Column
+  // profile: string; //parte antiga do codigo com o perfil sendo apenas como profile
+
+  @ForeignKey(() => Role)
   @Column
-  profile: string;
+  roleId: number;
+
+  @BelongsTo(() => Role)
+  role: Role; //campo para pegar os novos perfis de permissão
+
+  @ForeignKey(() => Company)
+  @Column
+  companyId: number;
+
+  @BelongsTo(() => Company)
+  company: Company; //vinculo com o cliente interno chamado de compania 
 
   @ForeignKey(() => Whatsapp)
   @Column
