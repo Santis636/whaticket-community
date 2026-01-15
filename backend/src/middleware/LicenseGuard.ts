@@ -1,0 +1,1 @@
+//aqui ficará toda verificação de licensa do usuário

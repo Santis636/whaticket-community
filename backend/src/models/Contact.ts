@@ -9,12 +9,22 @@ import {
   AllowNull,
   Unique,
   Default,
-  HasMany
+  HasMany,
+  ForeignKey,
+  BelongsTo
 } from "sequelize-typescript";
 import ContactCustomField from "./ContactCustomField";
 import Ticket from "./Ticket";
+import Company from "./Company"
 
-@Table
+@Table({
+  indexes: [
+    {
+      unique: true,
+      fields: ["companyId", "number"]
+    }
+  ]
+})
 class Contact extends Model<Contact> {
   @PrimaryKey
   @AutoIncrement
@@ -25,14 +35,33 @@ class Contact extends Model<Contact> {
   name: string;
 
   @AllowNull(false)
-  @Unique
   @Column
   number: string;
+
+  @ForeignKey(() => Company)
+  @AllowNull(false)
+  @Column
+  companyId: number;
+
+  @BelongsTo(() => Company)
+  company: Company;
 
   @AllowNull(false)
   @Default("")
   @Column
   email: string;
+
+  @Column
+  address: string;
+
+  @Column
+  document: string;
+
+  @Column
+  zipCode: string
+
+  @Column
+  addressComplement: string;
 
   @Column
   profilePicUrl: string;
@@ -41,11 +70,20 @@ class Contact extends Model<Contact> {
   @Column
   isGroup: boolean;
 
+
+  @AllowNull(false)
   @CreatedAt
   createdAt: Date;
 
+  @AllowNull(false)
+  @Column
+  createdBy: string;
+
   @UpdatedAt
   updatedAt: Date;
+
+  @Column
+  updateBy: string;
 
   @HasMany(() => Ticket)
   tickets: Ticket[];
@@ -54,6 +92,5 @@ class Contact extends Model<Contact> {
   extraInfo: ContactCustomField[];
 }
 
-//vincular com cliente externo
 
 export default Contact;

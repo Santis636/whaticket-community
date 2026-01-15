@@ -1,4 +1,4 @@
-import { AutoIncrement, BelongsTo, Column, CreatedAt, Default, ForeignKey, Model, PrimaryKey, Table, UpdatedAt } from "sequelize-typescript";
+import { AllowNull, AutoIncrement, BelongsTo, Column, CreatedAt, Default, ForeignKey, Model, PrimaryKey, Table, UpdatedAt } from "sequelize-typescript";
 import Feature from "./Feature";
 import License from "./License";
 
@@ -10,6 +10,7 @@ class LicenseLimit extends Model<LicenseLimit> {
     id: number;
 
     @ForeignKey(() => License)
+    @AllowNull(false)
     @Column
     licenseId: number;
 
@@ -22,9 +23,11 @@ class LicenseLimit extends Model<LicenseLimit> {
     @BelongsTo(() => License)
     license: License;
 
+    @AllowNull(false)
     @Column
     createdBy: string;
 
+    @AllowNull(false)
     @CreatedAt
     createdAt: Date;
 

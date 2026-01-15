@@ -1,4 +1,4 @@
-import { AutoIncrement, BelongsTo, Column, CreatedAt, ForeignKey, Model, PrimaryKey, Table, UpdatedAt } from "sequelize-typescript";
+import { AllowNull, AutoIncrement, BelongsTo, Column, CreatedAt, ForeignKey, Model, PrimaryKey, Table, UpdatedAt } from "sequelize-typescript";
 import Role from "./Role";
 import Permission from "./Permission";
 
@@ -10,10 +10,12 @@ class RolePermission extends Model<RolePermission> {
     id: number;
 
     @ForeignKey(() => Role)
+    @AllowNull(false)
     @Column
     roleId: number;
 
     @ForeignKey(() => Permission)
+    @AllowNull(false)
     @Column
     permissionId: number;
 
@@ -23,9 +25,11 @@ class RolePermission extends Model<RolePermission> {
     @BelongsTo(() => Permission)
     permission: Permission;
 
+    @AllowNull(false)
     @Column
     createdBy: string;
 
+    @AllowNull(false)
     @CreatedAt
     createdAt: Date;
 

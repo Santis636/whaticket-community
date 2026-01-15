@@ -11,11 +11,14 @@ import {
   AllowNull,
   HasMany,
   Unique,
-  BelongsToMany
+  BelongsToMany,
+  ForeignKey,
+  BelongsTo
 } from "sequelize-typescript";
 import Queue from "./Queue";
 import Ticket from "./Ticket";
 import WhatsappQueue from "./WhatsappQueue";
+import Company from "./Company";
 // adicionar o clinte interno
 
 @Table
@@ -58,6 +61,14 @@ class Whatsapp extends Model<Whatsapp> {
   @AllowNull
   @Column
   isDefault: boolean;
+
+  @ForeignKey(() => Company)
+  @AllowNull(false)
+  @Column
+  companyId: number;
+
+  @BelongsTo(() => Company)
+  company: Company;
 
   @CreatedAt
   createdAt: Date;

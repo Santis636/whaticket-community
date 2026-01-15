@@ -6,8 +6,11 @@ import {
   UpdatedAt,
   Model,
   PrimaryKey,
-  AutoIncrement
+  AutoIncrement,
+  ForeignKey,
+  BelongsTo
 } from "sequelize-typescript";
+import Company from "./Company";
 
 // /respostas rapidadas
 // da para vincular com o cliente interno
@@ -30,6 +33,14 @@ class QuickAnswer extends Model<QuickAnswer> {
 
   @UpdatedAt
   updatedAt: Date;
+
+  @ForeignKey(() => Company)
+  @Column
+  companyId: number;
+
+  @BelongsTo(() => Company)
+  company: Company;
+
 }
 
 export default QuickAnswer;

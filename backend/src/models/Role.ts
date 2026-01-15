@@ -1,7 +1,12 @@
-import { AutoIncrement, BelongsTo, Column, CreatedAt, Default, ForeignKey, Model, PrimaryKey, Table, UpdatedAt } from "sequelize-typescript";
+import { AllowNull, AutoIncrement, BelongsTo, Column, CreatedAt, Default, ForeignKey, Model, PrimaryKey, Table, UpdatedAt } from "sequelize-typescript";
 import Company from "./Company";
 
-@Table
+@Table({
+    indexes: [{
+        unique: true,
+        fields: ["companyId", "name"]
+    }]
+})
 class Role extends Model<Role> {
     @PrimaryKey
     @AutoIncrement
@@ -16,15 +21,18 @@ class Role extends Model<Role> {
     active: boolean;
 
     @ForeignKey(() => Company)
+    @AllowNull(false)
     @Column
     companyId: number;
 
     @BelongsTo(() => Company)
     company: Company;
 
+    @AllowNull(false)
     @Column
     createdBy: string;
 
+    @AllowNull(false)
     @CreatedAt
     createdAt: Date;
 

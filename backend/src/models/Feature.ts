@@ -1,4 +1,4 @@
-import { AllowNull, AutoIncrement, Column, Model, PrimaryKey, Table } from "sequelize-typescript";
+import { AllowNull, AutoIncrement, Column, Default, Model, PrimaryKey, Table } from "sequelize-typescript";
 
 @Table
 class Feature extends Model<Feature>{
@@ -10,5 +10,9 @@ class Feature extends Model<Feature>{
     @AllowNull(false)
     @Column
     name: string;
+
+    @Default(true)
+    @Column
+    active: true
 }
 export default Feature;

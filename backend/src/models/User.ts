@@ -13,7 +13,8 @@ import {
   HasMany,
   BelongsToMany,
   ForeignKey,
-  BelongsTo
+  BelongsTo,
+  AllowNull
 } from "sequelize-typescript";
 import { hash, compare } from "bcryptjs";
 import Ticket from "./Ticket";
@@ -23,9 +24,15 @@ import Whatsapp from "./Whatsapp";
 import Role from "./Role";
 import Company from "./Company";
 import { company } from "faker";
+import { tr } from "date-fns/locale";
 
 // adicionar o vinculo de permissão por usuario
-@Table
+@Table({
+  indexes: [{
+    unique: true,
+    fields: ["companyId", "email"]
+  }]
+})
 class User extends Model<User> {
   @PrimaryKey
   @AutoIncrement
@@ -53,6 +60,7 @@ class User extends Model<User> {
   // profile: string; //parte antiga do codigo com o perfil sendo apenas como profile
 
   @ForeignKey(() => Role)
+  @AllowNull(false)
   @Column
   roleId: number;
 
@@ -60,6 +68,7 @@ class User extends Model<User> {
   role: Role; //campo para pegar os novos perfis de permissão
 
   @ForeignKey(() => Company)
+  @AllowNull(false)
   @Column
   companyId: number;
 
@@ -67,14 +76,21 @@ class User extends Model<User> {
   company: Company; //vinculo com o cliente interno chamado de compania 
 
   @ForeignKey(() => Whatsapp)
+  @AllowNull(false)
   @Column
   whatsappId: number;
 
   @BelongsTo(() => Whatsapp)
   whatsapp: Whatsapp;
 
+  @Column
+  createdBy: string;
+
   @CreatedAt
   createdAt: Date;
+
+  @Column
+  updatedBy: string;
 
   @UpdatedAt
   updatedAt: Date;

@@ -8,7 +8,8 @@ import {
   Default,
   BelongsTo,
   CreatedAt,
-  UpdatedAt
+  UpdatedAt,
+  AllowNull
 } from "sequelize-typescript";
 import License from "./License";
 import Feature from "./Feature";
@@ -21,10 +22,12 @@ class LicenseFeature extends Model<LicenseFeature> {
   id: number;
 
   @ForeignKey(() => License)
+  @AllowNull(false)
   @Column
   licenseId: number;
 
   @ForeignKey(() => Feature)
+  @AllowNull(false)
   @Column
   featureId: number;
 
@@ -38,9 +41,11 @@ class LicenseFeature extends Model<LicenseFeature> {
   @BelongsTo(() => Feature)
   feature: Feature;
 
+  @AllowNull(false)
   @Column
   createdBy: string;
 
+  @AllowNull(false)
   @CreatedAt
   createdAt: Date;
 

@@ -1,4 +1,4 @@
-import { AllowNull, AutoIncrement, BelongsTo, Column, CreatedAt, Default, ForeignKey, Model, PrimaryKey, Table, UpdatedAt } from "sequelize-typescript";
+import { AllowNull, AutoIncrement, BelongsTo, Column, CreatedAt, Default, ForeignKey, HasMany, Model, PrimaryKey, Table, UpdatedAt } from "sequelize-typescript";
 import License from "./License";
 
 @Table
@@ -17,7 +17,7 @@ class Company extends Model<Company> {
     document: string;
 
     @Column
-    adress: string;
+    address: string;
 
     @Column
     logo: string;
@@ -26,16 +26,12 @@ class Company extends Model<Company> {
     @Column
     active: boolean;
 
-    @ForeignKey(() => License)
-    @Column
-    licenseId: number;
 
-    @BelongsTo(() => License)
-    license: License;
-
+    @AllowNull(false)
     @Column
     createdBy: string;
 
+    @AllowNull(false)
     @CreatedAt
     createdAt: Date;
 
@@ -44,5 +40,9 @@ class Company extends Model<Company> {
 
     @UpdatedAt
     updatedAt: Date;
+
+    @HasMany(() => License)
+    licenses: License[];
+
 }
 export default Company;

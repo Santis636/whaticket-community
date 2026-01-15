@@ -5,13 +5,20 @@ import {
   UpdatedAt,
   Model,
   ForeignKey,
-  BelongsTo
+  BelongsTo,
+  PrimaryKey,
+  AutoIncrement
 } from "sequelize-typescript";
 import Queue from "./Queue";
 import Whatsapp from "./Whatsapp";
 
 @Table
 class WhatsappQueue extends Model<WhatsappQueue> {
+  @PrimaryKey
+  @AutoIncrement
+  @Column
+  id: number;
+  
   @ForeignKey(() => Whatsapp)
   @Column
   whatsappId: number;

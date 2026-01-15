@@ -4,7 +4,9 @@ import {
   CreatedAt,
   UpdatedAt,
   Model,
-  ForeignKey
+  ForeignKey,
+  PrimaryKey,
+  AutoIncrement
 } from "sequelize-typescript";
 import Queue from "./Queue";
 import User from "./User";
@@ -12,6 +14,11 @@ import User from "./User";
 // adicionar o clinte interno
 @Table
 class UserQueue extends Model<UserQueue> {
+  @PrimaryKey
+  @AutoIncrement
+  @Column
+  id: number;
+
   @ForeignKey(() => User)
   @Column
   userId: number;
