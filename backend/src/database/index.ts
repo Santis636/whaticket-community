@@ -10,27 +10,31 @@ import Queue from "../models/Queue";
 import WhatsappQueue from "../models/WhatsappQueue";
 import UserQueue from "../models/UserQueue";
 import QuickAnswer from "../models/QuickAnswer";
+import path from "path";
 
 // eslint-disable-next-line
 const dbConfig = require("../config/database");
 // import dbConfig from "../config/database";
 
-const sequelize = new Sequelize(dbConfig);
+const sequelize = new Sequelize({
+  ...dbConfig,
+  models: [path.resolve(__dirname, "..", "models")]
+});
 
-const models = [
-  User,
-  Contact,
-  Ticket,
-  Message,
-  Whatsapp,
-  ContactCustomField,
-  Setting,
-  Queue,
-  WhatsappQueue,
-  UserQueue,
-  QuickAnswer
-];
+// const models = [
+//   User,
+//   Contact,
+//   Ticket,
+//   Message,
+//   Whatsapp,
+//   ContactCustomField,
+//   Setting,
+//   Queue,
+//   WhatsappQueue,
+//   UserQueue,
+//   QuickAnswer
+// ];
 
-sequelize.addModels(models);
+// sequelize.addModels(models);
 
 export default sequelize;

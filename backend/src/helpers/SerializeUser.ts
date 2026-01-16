@@ -16,7 +16,7 @@ export const SerializeUser = (user: User): SerializedUser => {
     id: user.id,
     name: user.name,
     email: user.email,
-    profile: user.profile,
+    profile: 'admin',
     queues: user.queues,
     whatsapp: user.whatsapp
   };
