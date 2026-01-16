@@ -9,10 +9,11 @@ async function startServer() {
 
   try {
 
-    await sequelize.sync({ force: true });
+    // await sequelize.sync({ force: true });
 
-    logger.info("Banco sincronizado");
-
+    // logger.info("Banco sincronizado");
+    //teste de desenvolvimento 
+    
     const server = app.listen(process.env.PORT, () => {
       logger.info(`Server started on port: ${process.env.PORT}`);
     });
