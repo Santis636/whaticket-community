@@ -54,7 +54,6 @@ class Coupon extends Model<Coupon> {
   @Column
   companyId: number;
 
-  @AllowNull(false)
   @CreatedAt
   createdAt: Date;
 
@@ -65,6 +64,7 @@ class Coupon extends Model<Coupon> {
   @UpdatedAt
   updatedAt: Date;
 
+  @AllowNull(false)
   @Column
   updatedBy: string;
 }

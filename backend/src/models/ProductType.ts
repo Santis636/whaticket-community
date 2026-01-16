@@ -38,17 +38,17 @@ class ProductType extends Model<ProductType> {
     @Column
     companyId: number;
 
-    @AllowNull(false)
     @CreatedAt
     createdAt: Date;
-
+    
     @AllowNull(false)
     @Column
     createdBy: string;
-
+    
     @UpdatedAt
     updatedAt: Date;
-
+    
+    @AllowNull(false)
     @Column
     updatedBy: string;
 

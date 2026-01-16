@@ -31,10 +31,10 @@ class Company extends Model<Company> {
     @Column
     createdBy: string;
 
-    @AllowNull(false)
     @CreatedAt
     createdAt: Date;
 
+    @AllowNull(false)
     @Column
     updatedBy: string;
 

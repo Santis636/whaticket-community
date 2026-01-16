@@ -37,7 +37,6 @@ class OrderProductType extends Model<OrderProductType> {
     @Column
     companyId: number;
 
-    @AllowNull(false)
     @CreatedAt
     createdAt: Date;
 
@@ -48,6 +47,7 @@ class OrderProductType extends Model<OrderProductType> {
     @UpdatedAt
     updatedAt: Date;
 
+    @AllowNull(false)
     @Column
     updatedBy: string;
 

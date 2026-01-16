@@ -14,7 +14,6 @@ class OperationType extends Model<OperationType> {
     @Column
     active: boolean;
 
-    @AllowNull(false)
     @CreatedAt
     createdAt: Date;
 
@@ -25,6 +24,7 @@ class OperationType extends Model<OperationType> {
     @UpdatedAt
     updatedAt: Date;
 
+    @AllowNull(false)
     @Column
     updatedBy: string;
 }

@@ -44,7 +44,6 @@ class Product extends Model<Product> {
     @Column
     active: boolean;
 
-    @AllowNull(false)
     @CreatedAt
     createdAt: Date;
     
@@ -55,6 +54,7 @@ class Product extends Model<Product> {
     @UpdatedAt
     updatedAt: Date;
 
+    @AllowNull(false)
     @Column
     updatedBy: string;
 }

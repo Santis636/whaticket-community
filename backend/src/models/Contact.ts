@@ -71,7 +71,6 @@ class Contact extends Model<Contact> {
   isGroup: boolean;
 
 
-  @AllowNull(false)
   @CreatedAt
   createdAt: Date;
 
@@ -82,6 +81,7 @@ class Contact extends Model<Contact> {
   @UpdatedAt
   updatedAt: Date;
 
+  @AllowNull(false)
   @Column
   updateBy: string;
 

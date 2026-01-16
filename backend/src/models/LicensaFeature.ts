@@ -45,10 +45,10 @@ class LicenseFeature extends Model<LicenseFeature> {
   @Column
   createdBy: string;
 
-  @AllowNull(false)
   @CreatedAt
   createdAt: Date;
-
+  
+  @AllowNull(false)
   @Column
   updatedBy: string;
 

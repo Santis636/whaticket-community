@@ -83,7 +83,6 @@ class Order extends Model<Order> {
     @BelongsTo(() => Company)
     company: Company;
 
-    @AllowNull(false)
     @CreatedAt
     createdAt: Date;
 
@@ -94,6 +93,7 @@ class Order extends Model<Order> {
     @UpdatedAt
     updatedAt: Date;
 
+    @AllowNull(false)
     @Column
     updatedBy: string;
 }

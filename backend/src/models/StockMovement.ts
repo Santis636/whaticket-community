@@ -50,10 +50,10 @@ class StockMovement extends Model<StockMovement> {
     @Column
     createdBy: string;
 
-    @AllowNull(false)
     @CreatedAt
     createdAt: Date;
 
+    @AllowNull(false)
     @Column
     updatedBy: string;
 

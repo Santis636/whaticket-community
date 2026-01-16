@@ -47,7 +47,6 @@ class OrderProduct extends Model<OrderProduct> {
     @BelongsTo(() => Company)
     company: Company;
 
-    @AllowNull(false)
     @CreatedAt
     createdAt: Date;
 
@@ -58,6 +57,7 @@ class OrderProduct extends Model<OrderProduct> {
     @UpdatedAt
     updatedAt: Date;
 
+    @AllowNull(false)
     @Column
     updatedBy: string;
 }

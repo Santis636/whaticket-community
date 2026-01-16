@@ -10,7 +10,6 @@ class StockMovementType extends Model<StockMovementType> {
   @Column
   name: string; // entrada | saída | devolução | ajuste
 
-  @AllowNull(false)
   @CreatedAt
   createdAt: Date;
 
@@ -21,6 +20,7 @@ class StockMovementType extends Model<StockMovementType> {
   @UpdatedAt
   updatedAt: Date;
 
+  @AllowNull(false)
   @Column
   updatedBy: string;
 }
