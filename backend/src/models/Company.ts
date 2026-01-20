@@ -14,10 +14,10 @@ class Company extends Model<Company> {
 
     @AllowNull(false)
     @Column
-    document: string;
+    document: string; //CPF OU CNPJ
 
     @Column
-    address: string;
+    address: string; //ENDEREÇO
 
     @Column
     logo: string;

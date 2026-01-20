@@ -2,6 +2,7 @@
   "compilerOptions": {
     "target": "es6",
     "module": "commonjs",
+    "rootDir": "./src", //adicionada para resolver erro do vscode em caso de problemas remover
     "outDir": "./dist",
     "strict": true,
     "strictPropertyInitialization": false,

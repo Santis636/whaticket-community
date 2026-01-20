@@ -1,4 +1,4 @@
-import License from "../models/License";
+import License from "../../models/License";
 
 type LicenseStatus = "active" | "suspended" | "expired";
 interface Request {

@@ -23,8 +23,6 @@ import UserQueue from "./UserQueue";
 import Whatsapp from "./Whatsapp";
 import Role from "./Role";
 import Company from "./Company";
-import { company } from "faker";
-import { tr } from "date-fns/locale";
 
 // adicionar o vinculo de permissão por usuario
 @Table({
