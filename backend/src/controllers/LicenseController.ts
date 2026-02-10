@@ -21,3 +21,4 @@ export const create = async (req: Request, res: Response) => {
     });
     return res.status(201).json(license);
 };
+1

@@ -1,5 +1,7 @@
 import AppError from "../../errors/AppError";
 import Contact from "../../models/Contact";
+import Company from "../../models/Company";
+import Ticket from "../../models/Ticket";
 
 interface ExtraInfo {
   name: string;
@@ -12,12 +14,39 @@ interface Request {
   email?: string;
   profilePicUrl?: string;
   extraInfo?: ExtraInfo[];
+  id: number;
+  companyId: number;
+  company: Company;
+  address: string;
+  addressComplement: string;
+  document: string;
+  zipCode: string;
+  isGroup: boolean;
+  createdAt: Date;
+  createdBy: string;
+  updatedAt: Date;
+  updateBy: string;
+  tickets: Ticket[];
 }
 
 const CreateContactService = async ({
   name,
   number,
   email = "",
+  id,
+  company,
+  companyId,
+  address,
+  addressComplement,
+  document,
+  zipCode,
+  updateBy,
+  updatedAt,
+  isGroup,
+  createdAt,
+  createdBy,
+  tickets,
+  profilePicUrl,
   extraInfo = []
 }: Request): Promise<Contact> => {
   const numberExists = await Contact.findOne({
@@ -33,7 +62,21 @@ const CreateContactService = async ({
       name,
       number,
       email,
-      extraInfo
+      extraInfo,
+      id,
+      company,
+      companyId,
+      address,
+      addressComplement,
+      document,
+      zipCode,
+      updateBy,
+      updatedAt,
+      isGroup,
+      createdAt,
+      createdBy,
+      tickets,
+      profilePicUrl
     },
     {
       include: ["extraInfo"]
