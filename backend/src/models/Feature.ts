@@ -13,6 +13,6 @@ class Feature extends Model<Feature>{
 
     @Default(true)
     @Column
-    active: true
+    active: boolean;
 }
 export default Feature;
